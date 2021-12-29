@@ -1,0 +1,288 @@
+\documentclass[12pt, a4paper]{article}
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage[french]{babel}
+%\usepackage[left=20mm, right=20mm, top=20mm, bottom=20mm]{geometry}
+\usepackage[table]{xcolor}
+\usepackage{amsmath}
+\usepackage{amsfonts}
+\usepackage{amssymb}
+\usepackage{lmodern}
+\usepackage{tikz}
+\usepackage{hyperref}
+	\hypersetup{
+		colorlinks=true,
+		urlcolor=blue!75!green,
+		linkcolor=green!80!blue,
+	}
+	\urlstyle{same}
+\usepackage{float}
+\usepackage{array}
+\usepackage[european]{circuitikz}
+	\usetikzlibrary{math, babel}
+\title{Exercices d'entraînement\\pour l'intensité\\du courant électrique.}
+\author{F.S.G.}
+\date{Document créé le 9 décembre 2021\\Compilation du \today{}.}
+\renewcommand{\baselinestretch}{1.25}
+\setlength{\parskip}{0.5em}
+\begin{document}
+\maketitle
+
+\section*{Exercice 1}
+\paragraph{Données : } à la sortie de la D.E.L. l'intensité vaut I~=~40~mA.
+
+\begin{figure}[H]
+	\centering
+	\begin{circuitikz}
+		\draw (0,3) to[vsource, voltage=american, v=9V, *-*] ++(0,-2) ;
+		\draw (0,3) |- ++(1,1) to[leD-, *-*] ++(2,0) -| ++(1,-1) to[lamp, *-*] ++(0,-2) |- ++(-1,-1) to[R, *-*] ++(-2,0) -| ++(-1,1) ; 
+	\end{circuitikz}
+\end{figure}
+
+\paragraph{1.} Recopiez le circuit sur votre feuille et ajoutez le courant électrique sur chaque fil avec à côté de chaque flèche l'intensité du courant correspondante.
+
+Vous trouverez la localisation de chaque intensité dans le tableau.
+
+\begin{table}[H]
+	\centering
+	\rowcolors{1}{white}{white!80!black}
+	\renewcommand*{\baselinestretch}{1}
+	\begin{tabular}{|m{0.18\linewidth}||m{0.20\linewidth}|m{0.16\linewidth}|m{0.16\linewidth}|m{0.20\linewidth}|}
+		\hline
+		Nom de l'intensité & $I_1$ & $I_2$ & $I_3$ & $I_4$ \\
+		Localisation : Entre ... & {\small ...le pôle positif du générateur et la D.E.L.} & {\small ... la D.E.L. et la lampe} & {\small ... la lampe et le résistor} & {\small ... le résistor et le pôle négatif du générateur} \\
+		Valeur mesurée & & 40~mA & & \\
+		\hline
+	\end{tabular}
+\end{table}
+
+\paragraph{3.} Donnez le nom de la loi sur l'intensité du courant qui doit être utilisée (appliquée) dans ce circuit et énoncez-là.
+
+\paragraph{4.} En utilisant la loi de la 3\ieme{} question, complétez les cases vides du tableau.
+
+\section*{Exercice 2}
+Convertir les valeurs de la première unité vers la seconde.
+
+\textbf{A.} 2~A $\rightarrow$ mA \hfill \textbf{B.} 56~mA $\rightarrow$ A \hfill \textbf{C.} 12~A $\rightarrow$ kA
+
+\textbf{D.} 0,047~A $\rightarrow$ mA \hfill \textbf{E.} 3 $\mu$A $\rightarrow$ mA \hfill \textbf{F.} 7~A $\rightarrow$ $\mu$A
+
+\paragraph{Aide :} Tableau des unités.
+\begin{table}[H]
+	\centering
+	\begin{tabular}{|c|c|c|c|c|c|c|c|c|c|}
+		\hline
+		kA & ~~ & ~~ & ~A & ~~ & ~~ & mA & ~~ & ~~ & $\mu$A \\
+		\hline
+		& & & & & & & & & \\
+		& & & & & & & & & \\
+		& & & & & & & & & \\
+		\hline
+	\end{tabular}
+\end{table}
+
+\section*{Exercice 3}
+\paragraph{Données :} l'ampèremètre $A_1$ mesure une intensité de 16,2~mA.
+
+\begin{figure}[H]
+	\centering
+	\begin{circuitikz}
+		\draw (3,1) to[vsource, *-*, voltage=american, v=9V] ++(2,0) ;
+		\draw (3,1) -| ++(-1,-1) to[rmeter, t=$A_1$, *-*] ++(0,-2) |- ++(1,-1) to[R, *-*] ++(2,0) to[rmeter, t=$A_2$,*-*] ++(2,0) -| ++(1,1) to[leD-,*-*,mirror] ++(0,2) |- ++(-3,1) ;
+	\end{circuitikz}
+\end{figure}
+
+\paragraph{a.} Redessinez le circuit et ajoutez les courants électriques près de chaque ampèremètre.
+
+\paragraph{b.} Choisissez une des propositions suivantes comme mesure lue sur l'ampèremètre $A_2$ : 32,4~mA, 8,4~mA ou 16,2~mA.
+
+\paragraph{c.} Redessinez le circuit électrique en inversant la D.E.L. Quelles seront alors les intensités mesurées par les ampèremètres $A_1$ et $A_2$ ? Expliquez pourquoi.
+
+
+\section*{Exercice 4}
+\begin{figure}[H]
+	\centering
+	\begin{circuitikz}
+		\foreach \abscisse in {0, 5, 10}{%
+			\draw (\abscisse,4) to[battery2, voltage=american, v={~}] ++(3,0) -- ++(0,-4) ;
+		} ;
+		\draw (0,4) -- ++(0,-2) to[R] ++(0,-2) -- ++(1,0) node[below] {A} to[rmeter, t=A] node[below]{COM} ++(2,0) ;
+		\draw (5,4) |- ++(1,-4) node[below]{A} to[rmeter, t=A] node[below]{COM} ++(2,0) ;
+		\draw (5,2) to[R] ++(3,0) ;
+		\draw (10,4) -- ++(0,-2) to[R] ++(0,-2) -- ++(1,0) ;
+		\draw (13,0) node[below]{A} to[rmeter, t=A] node[below]{COM} ++(-2,0) ;
+	\end{circuitikz}
+\end{figure}
+
+\paragraph{1.} Dans lequel des trois circuits l'ampèremètre est-il bien positionné ?
+
+\paragraph{2.} Pour chacun des deux autres circuits expliquez ce qui ne va pas.
+
+\section*{Exercice 5}
+
+~ \hfill \rule{0.5\linewidth}{0.5pt} \hfill ~
+
+\paragraph{À noter en annexe de votre cours sur une feuille simple.} {\color{red}Un calibre est la valeur maximale qui peut être mesurée. 
+Le calibre doit toujours être supérieur à la valeur mesurée sinon le fusible de l'ampèremètre grille. 
+Le \emph{meilleur} calibre sera le plus proche de l'intensité mesurée tout en lui restant supérieur.}
+
+\subparagraph*{Exemple :} Pour la valeur mesurée de I~=~126~mA, et parmi les calibres ``2~$\mu$A'', ``20~$\mu$A'', ``200~$\mu$A'', ``2~mA'', ``20~mA'', ``200~mA'', ``2~A'' ou ``20~A'' :
+\begin{itemize}
+	\item je peux choisir les calibres : ``200~mA'', ``2~A'' ou ``20~A'' car ces valeurs sont supérieures à 126~mA ;
+	\item le meilleur calibre est : ``200~mA'' car c'est le nombre le plus proche de 126~mA et que 200 > 126.
+\end{itemize}
+
+Pour les ampèremètres de la salle 407, si le calibre choisi est 2A ou 20A les bornes ``2/20A'' et ``COM'' devront être choisies, si c'est un autre calibre, alors il faudra utiliser les bornes ``mA'' et ``COM''.
+
+~ \hfill \rule{0.5\linewidth}{0.5pt} \hfill ~
+
+\paragraph{1.} Un élève doit mesurer plusieurs intensités sur un ampèremètre possédant les calibres et les entrées suivantes :
+\begin{table}[H]
+	\centering
+	\rowcolors{2}{white!80!black}{white}
+	\begin{tabular}{c c c c c c}
+		Valeur du calibre & 2 mA & 20 mA & 200 mA & 2 A & 20 A \\
+		\hline\hline
+		Borne 1 à utiliser & mA & mA & mA & 2/20 A & 2/20 A \\
+		Borne 2 à utiliser & COM & COM & COM & COM & COM \\
+	\end{tabular}
+\end{table}
+
+Pour chaque valeur à mesurer précise le meilleur calibre à utiliser et les deux bornes de connexion pour brancher l'appareil dans le circuit.
+
+\textbf{a.} 126 mA \hfill \textbf{b.} 0,19 A \hfill \textbf{c.} 21 mA \hfill \textbf{d.} 325 mA
+
+Rappel : 1 A = 1 000 mA
+
+\paragraph{2.} Comment se branche un ampèremètre dans un circuit -- quelque soit le type de circuit ?
+
+\section*{Exercice 6}
+Pour chacun des n\oe{}uds dessinés indiquez quelle est l'intensité de la branche principale et celles des branches dérivées.
+
+\begin{figure}[H]
+	\centering
+	\begin{circuitikz}
+		\foreach \abscisse/\noeud in {
+			1/A,
+			5/B,
+			9/C,
+			13/D
+		}{%
+			\node at (\abscisse,2.5) {n\oe{}ud \noeud} ;
+			\draw[dashed, blue!40!red] (\abscisse,1) circle (1.2) ;
+		} ;
+		% nœud A
+		\draw (-0.2,1) to[short, i=$I_1$, -*] (1,1) ;
+		\draw (1,1) to[short, i=$I_2$, *-] (2,2) ;
+		\draw (1,1) to[short, i=$I_3$, *-] (2,0) ;
+		% nœud B
+		\draw (5,2.2) to[short, i=$I_1$, -*] (5,1) ;
+		\draw (5,-0.2) to[short, i=$I_2$, -*] (5,1) ;
+		\draw (5,1) to[short, i=$I_3$, *-] (3.5,1) ;
+		% nœud C
+		\draw (9,1) to[short, i=$I_1$, *-] (9,2.2) ;
+		\draw (9,1) to[short, i=$I_2$, *-] (10.2,1) ;
+		\draw (9,-0.2) to[short, i=$I_3$, -*] (9,1) ;
+		% nœud D
+		\draw (12,2) to[short, i=$I_1$, -*] (13,1) ;
+		\draw (14.2,1) to[short, i=$I_2$, -*] (13,1) ;
+		\draw (13,1) to[short, i=$I_3$, *-] (12,0) ;
+	\end{circuitikz}
+\end{figure}
+
+\section*{Exercice 7}
+\begin{figure}[H]
+	\centering
+	\begin{circuitikz}
+		\draw (0,0) to[lamp,*-*] ++(2,0) to[rmeter, t=$A_3$, *-*] ++(2,0) -- ++(0,4) to[lamp, *-*] ++(-2,0) to[rmeter,t=$A_1$, *-*] ++(-2,0) -- ++(0,-4) ;
+		\draw (0,2) to[rmeter, t=$A_2$, *-*] ++(2,0) to[battery2, *-*, voltage=american, v={~}] ++(2,0) ;
+	\end{circuitikz}
+\end{figure}
+
+\paragraph{Données :} L'ampèremètre $A_1$ mesure l'intensité $I_1$ qui vaut 0,18~A, l'ampèremètre $A_2$ mesure l'intensité $I_2$ et l'ampèremètre $A_3$ mesure l'intensité $I_3$ qui vaut 0,38~A.
+
+\paragraph{1.} Ajoute à côté du n\oe{}ud B les intensités $I_1$, $I_2$ et $I_3$ avec les flèches indiquant le sens des courants.
+
+\paragraph{2.} quelle est la loi à utiliser dans ce circuit ? Que dit-elle ?
+
+\paragraph{3.} Calculez $I_2$ et justifiez en écrivant les calculs effectués.
+
+\section*{Exercice 8}
+\begin{figure}[H]
+	\centering
+	\begin{circuitikz}
+		\draw (0,3) to[battery2, *-*, i=$\mathrm{I_1}$, v=4.5V, voltage=american] ++(0,-3) ;
+		\draw (0,3) -- ++(2,0) to[R, *-*,  i=$\mathrm{I_2}$] ++(0,-3) -- ++(-2,0) ;
+		\draw (2,3) -- ++(2,0) to[lamp, *-*, i=$\mathrm{I_3}$] ++(0,-3) -- ++(-2,0) ;
+	\end{circuitikz}
+\end{figure}
+
+\paragraph{1.} Redessinez le circuit électrique en ajoutant un ampèremètre aux endroits nécessaires pour mesurer $\mathrm{I_1}$ et $\mathrm{I_3}$.
+
+\paragraph{2.} Quelle est la loi à utiliser dans ce circuit ? (Au n\oe{}ud B par exemple) Que dit-cette loi ?
+
+\paragraph{3.} Calculez $\mathrm{I_2}$ et justifiez par les calculs.
+
+\section*{Exercice 9 : guirlande de noël}
+Les guirlandes de noël ont évolué depuis de nombreuses années, passant d'un branchement en série à un branchement en dérivation afin d'éviter tout risque d'accident électrique.
+Les deux circuits qui suivent montrent un exemple de guirlande ancienne et un exemple de guirlande moderne.
+
+Pour que chaque lampe fonctionne, il faut une intensité du courant électrique égale à 0,1~A.
+
+\begin{figure}[H]
+	\centering
+	\begin{circuitikz}
+		\foreach \abscisse/\labelle in {0/1, 9/2}{%
+			\draw (\abscisse, 3) to[vsource, *-*, voltage=american, v={~}, i=$I_\labelle$] ++(0,-3) ;
+		} ;
+		\foreach \abscisse in {0, 1.5, 3, 4.5, 6}{%
+			\draw (\abscisse, 3) to[lamp] ++(1.5,0) ;
+			\draw (\abscisse, 0) to[lamp] ++(1.5,0) ;
+		} ;
+		\foreach \abscisse in {7.5, 10.5, 12, 13.5, 15}{%
+			\draw (\abscisse,3) to[lamp] ++(0,-3) ;
+		} ;
+		\foreach \ordonnee in {0,3}{%
+			\draw (9,\ordonnee) -- ++(6,0) ;
+		} ;
+	\end{circuitikz}
+\end{figure}
+
+\paragraph{1.} Calculez en justifiant l'intensité $I_1$.
+
+\paragraph{2.} Calculez en justifiant l'intensité $I_2$.
+
+\section*{Exercice 10 : Simulation de circuits}
+\subsection*{Circuit en dérivation}
+Rendez vous sur le site suivant (le lien est actif dans ce pdf) :\newline
+\url{https://go-lab.gw.utwente.nl/production/electricalCircuitLab/build/circuitLab.html?preview}\newline
+construisez le circuit suivant :
+\begin{figure}[H]
+	\centering
+	\includegraphics[width=0.8500\textwidth]{circuit-deriv-utwente.png}
+\end{figure}
+et suivez les consignes.
+\paragraph{1.} De gauche à droite les lampes s'appelleront L1, L2, L3 et L4.
+Pour chaque lampe, attrapez l'ampèremètre (le A entouré de bleu dans la colonne de droite) et mesurez l'intensité de chaque lampe.
+Si vous avez manipulé convenablement, la valeur affichée à droite dans la case d'où a été attrapé l'ampèremètre doit indiquer 90~mA
+
+\paragraph{2.} En utilisant la loi des n\oe{}uds, calculez l'intensité fournie par le générateur.
+
+\paragraph{3.} Déplacez l'ampèremètre sur un point de la branche principale et vérifiez votre réponse \textbf{2.}. Les valeurs sont-elles identiques ?
+
+\subsection*{circuit en série}
+Rendez vous sur le même site et construisez le circuit suivant :
+\begin{figure}[H]
+	\centering
+	\includegraphics[width=0.8500\textwidth]{circuit-serie-utwente.png}
+\end{figure}
+et suivez les consignes.
+\paragraph{1.} Du plus vers le moins les lampes s'appelleront L1, L2, L3, L4 et L5.
+Pour chaque lampe, attrapez l'ampèremètre (le A entouré de bleu dans la colonne de droite) et mesurez l'intensité de chaque lampe.
+Si vous avez manipulé convenablement, la valeur affichée à droite dans la case d'où a été attrapé l'ampèremètre doit indiquer 90~mA
+
+\paragraph{2.} En utilisant la loi d'unicité, calculez l'intensité fournie par le générateur.
+
+\paragraph{3.} Déplacez l'ampèremètre près de la pile vérifiez votre réponse \textbf{2.}. Les valeurs sont-elles identiques ?
+
+\end{document}
