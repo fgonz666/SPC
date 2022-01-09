@@ -6,12 +6,18 @@ Ce dépôt contient quelques idées de cours et de leçons en Physique-Chimie, l
 
 ### Langages utilisés
 
-LaTeX, asciidoc, markdown, txt
+Langages de formatage de documents utilisés:: LaTeX, asciidoc, markdown, plain text, html
 
 ### Documents iconographiques
 
-jpg, png
+formats utilisés:: jpg, png
+
+### Documents de données expérimentales.
+
+text brut:: txt, csv
 
 ### Langages utilisés - linguistique
 
 Anglais, Espagnol et Français. 
+
+!© F.S.G.
